@@ -25,12 +25,12 @@ public class LivroController {
         List<Map<String, Object>> livros = new ArrayList<>();
         Set<String> seenLivros = new HashSet<>();
 
-        String url = "jdbc:mysql://localhost:3306/livraria";
+        String url = "jdbc:mysql://thomas.proxy.rlwy.net:33256/railway";
         String user = "root";
-        String password = "123456789";
+        String password = "TtLvkseGpmczjiqGbFXWNDYqzjJLsRwd";
 
         try (Connection conn = DriverManager.getConnection(url, user, password);
-             PreparedStatement stmt = conn.prepareStatement("SELECT idLivros, titulo, autor, preco, categoria FROM livros");
+             PreparedStatement stmt = conn.prepareStatement("SELECT idLivros, titulo, autor, preco, categoria FROM Livros");
              ResultSet rs = stmt.executeQuery()) {
 
             while (rs.next()) {
@@ -60,4 +60,3 @@ public class LivroController {
         return livros;
     }
 }
-

@@ -52,7 +52,6 @@ public class LivroDAO {
 
                     return true;
                 }
-
             }
 
         } catch (SQLException e) {
@@ -85,6 +84,9 @@ public class LivroDAO {
     // Listar livros
     public List<Livro> listarLivros() {
 
+        System.err.println(">>> MÉTODO listarLivros CHAMADO <<<");
+        System.err.println(">>> URL: jdbc:mysql://thomas.proxy.rlwy.net:33256/railway <<<");
+
         List<Livro> livros = new ArrayList<>();
 
         String sql =
@@ -103,7 +105,6 @@ public class LivroDAO {
 
             try (
                 Statement stmt = conn.createStatement();
-
                 ResultSet rs = stmt.executeQuery(sql)
             ) {
 
@@ -112,11 +113,8 @@ public class LivroDAO {
                     Livro livro = new Livro(
 
                         rs.getString("titulo"),
-
                         rs.getString("autor"),
-
                         rs.getDouble("preco"),
-
                         rs.getString("categoria")
                     );
 
@@ -126,12 +124,13 @@ public class LivroDAO {
 
         } catch (SQLException e) {
 
-            System.out.println(
+            System.err.println(
                 "Erro ao listar livros: "
                 + e.getMessage()
             );
+            e.printStackTrace();
         }
 
         return livros;
     }
-}
+} 

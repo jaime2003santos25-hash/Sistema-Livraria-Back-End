@@ -12,14 +12,12 @@ import java.util.Properties;
 
 public class conexao {
 
-    // Configurações padrão
-    private static final String DEFAULT_URL =
-        "jdbc:mysql://localhost:3306/livraria";
+  private static final String DEFAULT_URL =
+    "jdbc:mysql://thomas.proxy.rlwy.net:33256/railway";
 
-    private static final String DEFAULT_USER = "root";
+private static final String DEFAULT_USER = "root";
 
-    // COLOQUE SUA SENHA REAL DO MYSQL AQUI
-    private static final String DEFAULT_PASSWORD = "123456789";
+private static final String DEFAULT_PASSWORD = "TtLvkseGpmczjiqGbFXWNDYqzjJLsRwd"; 
 
     public static Connection conectar() {
 
@@ -66,15 +64,13 @@ public class conexao {
             );
 
             return null;
+} catch (SQLException e) {
 
-        } catch (SQLException e) {
+    System.err.println("Erro completo na conexão:");
+    e.printStackTrace();
 
-            System.out.println(
-                "Erro na conexão: " + e.getMessage()
-            );
-
-            return null;
-        }
+    return null;
+}
     }
 
     private static Properties loadProperties() {
