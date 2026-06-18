@@ -16,7 +16,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = {
+    "http://localhost:5173",
+    "https://sistema-livraria-front-end.vercel.app",
+    "https://sistema-livraria-front-9a442edbd-jayme-s-projects2.vercel.app"
+})
 public class LivroController {
 
     @GetMapping("/livros")
@@ -59,4 +63,4 @@ public class LivroController {
 
         return livros;
     }
-}
+}  
